@@ -19,4 +19,7 @@
   <a href="">
     <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="" />
   </a>
+   < a href="">
+     <img src="https://img.shields.io/badge/required-Flask&Owlready2-orange" alt=""/>
+   </a>
 </h1>
