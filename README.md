@@ -2,3 +2,21 @@
   
 # Py2ONTO-VE
  A web-based ontology editor supporting manual table editing, CSV import/export, and AI-powered natural language extraction, producing standard OWL format files.
+ 
+ <h1 align="center">
+  <a href="">
+    <img src="https://img.shields.io/badge/releases-v1.0-red" />
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/badge/docs-v1.0-yellow" />
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/badge/Ontology-Construction-blue" />
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/badge/LICENSE-LGPL 3-brightgreen" />
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="" />
+  </a>
+</h1>
