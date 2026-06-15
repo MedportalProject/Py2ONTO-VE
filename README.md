@@ -23,3 +23,30 @@
      <img src="https://img.shields.io/badge/required-Flask&Owlready2-orange" alt="" />
    </a>
 </h1>
+
+## Table of Contents
+
+1. [Quick Start](#quick-start)
+2. [Interface Overview](#interface-overview)
+3. [Editing the Ontology](#editing-the-ontology)
+   - [Classes](#classes)
+   - [Annotation Properties](#annotation-properties)
+   - [Object Properties](#object-properties)
+   - [Individuals](#individuals)
+   - [Custom Columns](#custom-columns)
+4. [Build & Preview](#build--preview)
+5. [Generate & Download OWL](#generate--download-owl)
+6. [CSV Import & Export](#csv-import--export)
+   - [Download CSV Templates](#download-csv-templates)
+   - [Upload CSV Files](#upload-csv-files)
+7. [AI-Assisted Extraction](#ai-assisted-extraction)
+   - [Configure API Keys](#configure-api-keys)
+   - [Using AI Extraction](#using-ai-extraction)
+   - [Custom System Prompt](#custom-system-prompt)
+   - [Supported LLM Providers](#supported-llm-providers)
+8. [Ontology Tree Visualization](#ontology-tree-visualization)
+9. [Configuration File Reference](#configuration-file-reference)
+10. [Output File Formats](#output-file-formats)
+11. [FAQ](#faq)
+
+---
