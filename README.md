@@ -50,3 +50,25 @@
 11. [FAQ](#faq)
 
 ---
+## Quick Start
+
+### 1. Install Dependencies
+
+```bash
+cd py2onto_ve
+pip install -r requirements.txt
+```
+
+### 2. Configure API Keys (optional, for AI extraction only)
+
+Edit `config.json` and fill in the API key for your chosen LLM provider. 
+
+### 3. Launch the Server
+
+```bash
+python app.py
+```
+
+The server starts at `http://127.0.0.1:5001`. Open this URL in your browser.
+
+---
