@@ -103,7 +103,7 @@ The interface is divided into three main areas:
 ```
 
 - **Toolbar**: Set the ontology IRI, trigger a build preview, generate and download the OWL file, or clear all data.
-- **Left Panel**: 6 tabs for editing Classes, Annotation Properties, Object Properties, Individuals, searching ontology terms from OLS and BioPortal, and AI-assisted extraction (supporting DeepSeek, ChatGLM, Gemini, Ollama, and Anthropic Claude).
+- **Left Panel**: 6 tabs for editing Classes, Annotation Properties, Object Properties, Individuals, searching ontology terms from OLS and BioPortal, and AI-assisted extraction (supporting DeepSeek, ChatGLM, Gemini, and Ollama).
 - **Right Panel**: Hierarchical ontology tree. Clicking a node navigates to the corresponding table row.
 
 ---
@@ -328,7 +328,6 @@ Alternatively, use environment variables (no config file changes needed):
 | DeepSeek | `DEEPSEEK_API_KEY` |
 | ChatGLM | `CHATGLM_API_KEY` |
 | Gemini | `GEMINI_API_KEY` |
-| Anthropic | `ANTHROPIC_API_KEY` |
 
 ### Using AI Extraction
 
@@ -414,10 +413,9 @@ Click **✎ Task prompt** (next to the System prompt button above the input text
 | **DeepSeek** | `deepseek-chat` (DeepSeek-V3), `deepseek-reasoner` (DeepSeek-R1) | OpenAI-compatible |
 | **ChatGLM (ZhipuAI)** | `glm-4-flash` (fast), `glm-4`, `glm-4-plus` (most capable) | OpenAI-compatible |
 | **Gemini (Google)** | `gemini-2.5-flash` (recommended), `gemini-2.5-pro` (complex ontologies) | Google Generative AI SDK |
-| **Anthropic Claude** | Configured via `config.json` (`claude-sonnet-4-20250514` or other) | Anthropic SDK |
 | **Ollama (Local)** | Any locally pulled model (e.g. `llama3`, `mistral`, `qwen2.5`) — models are auto-detected from the Ollama server | OpenAI-compatible (localhost:11434) |
 
-> **Note**: Anthropic Claude is fully supported by the backend and can be used by setting `provider` to `anthropic` in `config.json`. The frontend provider dropdown currently shows DeepSeek, ChatGLM, Gemini, and Ollama; select Anthropic by editing `config.json` directly and setting `llm.provider` to `"anthropic"`. For Ollama, make sure `ollama serve` is running locally — available models are automatically listed in the model dropdown.
+> **Note**: For Ollama, make sure `ollama serve` is running locally — available models are automatically listed in the model dropdown.
 
 ---
 
@@ -456,7 +454,6 @@ Structure of `config.json`:
     "deepseek": { "api_key": "", "model": "deepseek-chat", "base_url": "https://api.deepseek.com/v1" },
     "chatglm":  { "api_key": "", "model": "glm-4-flash", "base_url": "https://open.bigmodel.cn/api/paas/v4" },
     "gemini":   { "api_key": "", "model": "gemini-2.5-flash" },
-    "anthropic":{ "api_key": "", "model": "claude-sonnet-4-20250514" },
     "ollama":   { "api_key": "", "model": "", "base_url": "http://localhost:11434/v1" }
   }
 }
@@ -801,8 +798,9 @@ In **Merge** mode, the `Populate Tables` function automatically skips rows whose
 | Ontology engine | owlready2 |
 | Data processing | pandas |
 | Frontend | Vanilla HTML / CSS / JavaScript |
-| LLM integration | OpenAI SDK / Google Generative AI SDK / Anthropic SDK |
+| LLM integration | OpenAI SDK / Google Generative AI SDK |
 | External terminology | EBI Ontology Lookup Service (OLS), BioPortal |
+
 ---
 
 ## Project Structure
