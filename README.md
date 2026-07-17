@@ -24,6 +24,8 @@
    </a>
 </h1>
 
+---
+
 ## Table of Contents
 
 1. [Quick Start](#quick-start)
@@ -481,7 +483,7 @@ The generated `.owl` file uses **RDF/XML** format conforming to the OWL 2 standa
 
 ### Metadata Report (`.txt`)
 
-A plain-text companion report suitable for inclusion in academic paper appendices or lab notebooks, containing:
+A plain-text companion report containing:
 
 ```
 ======================================================================
@@ -641,7 +643,7 @@ onto.save('./ibd_ontology.owl')
 "
 ```
 
-These methods produce the same ontology and are designed for side-by-side comparison — useful when evaluating LLM extraction quality in a research context.
+These methods produce the same ontology.
 
 ---
 
@@ -801,7 +803,6 @@ In **Merge** mode, the `Populate Tables` function automatically skips rows whose
 | Frontend | Vanilla HTML / CSS / JavaScript |
 | LLM integration | OpenAI SDK / Google Generative AI SDK / Anthropic SDK |
 | External terminology | EBI Ontology Lookup Service (OLS), BioPortal |
-
 ---
 
 ## Project Structure
