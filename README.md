@@ -232,7 +232,7 @@ Click the **Generate OWL** button to:
 - ASCII-formatted class hierarchy tree
 - Detailed object property information with characteristics
 - Annotation property listing
-- Software environment (Python version, owlready2 version)
+- Software environment (Python version, Py2ONTO version, owlready2 version)
 
 ---
 
@@ -374,25 +374,6 @@ Click **✎ Edit Prompt** to open the prompt editor modal:
 - **Save & Close**: Persist the edited prompt to `config.json` for future sessions.
 - The current prompt status is shown in the modal footer ("Built-in default loaded" or "Custom prompt loaded").
 - The custom prompt is also sent with each extraction request (if the editor has been modified without saving).
-
-The LLM is instructed to output JSON with the following schema:
-
-```json
-{
-  "classes": [
-    {"parent_class": "Thing", "id": "Disease", "label": "Disease", "iri": "...", "source": "local", "comment": "...", "definition": ""}
-  ],
-  "aps": [
-    {"id": "hasDbXref", "label": "has dbxref", "comment": "...", "domain": "Thing", "range": "Thing", "definition": ""}
-  ],
-  "ops": [
-    {"id": "treats", "label": "treats", "comment": "...", "domain": "Drug", "range": "Disease", ...}
-  ],
-  "individuals": [
-    {"types": "Aspirin", "relation": "has_individual", "id": "aspirin_01", "label": "Aspirin (instance)", "comment": "...", "definition": ""}
-  ]
-}
-```
 
 ### Custom Task Prompt
 
@@ -609,7 +590,7 @@ Thing
 
 ### Ways to Use the Example
 
-**Method A — CSV Upload** (deterministic, recommended for reproducibility):
+**Method A — CSV Upload** (deterministic):
 
 1. Open the editor and set the IRI to `http://bmicc.cn/IBD_py2ontove.owl#`
 2. On each tab, click **Upload** and select the corresponding CSV file — import in order: OPs → Classes
@@ -795,7 +776,7 @@ In **Merge** mode, the `Populate Tables` function automatically skips rows whose
 | Layer | Technology |
 |-------|-----------|
 | Backend framework | Flask |
-| Ontology engine | owlready2 |
+| Ontology engine | Py2ONTO, owlready2 |
 | Data processing | pandas |
 | Frontend | Vanilla HTML / CSS / JavaScript |
 | LLM integration | OpenAI SDK / Google Generative AI SDK |
