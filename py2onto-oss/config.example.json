@@ -1,0 +1,34 @@
+{
+  "medportal": {
+    "url": "http://medportal.bmicc.cn:8080",
+    "api_key": "your-medportal-api-key-here"
+  },
+  "bioportal": {
+    "url": "http://data.bioontology.org",
+    "api_key": "your-bioportal-api-key-here"
+  },
+  "system_prompt": "",
+  "task_prompt": "",
+  "llm": {
+    "provider": "deepseek",
+    "deepseek": {
+      "api_key": "sk-your-deepseek-api-key",
+      "model": "deepseek-chat",
+      "base_url": "https://api.deepseek.com/v1"
+    },
+    "chatglm": {
+      "api_key": "your-chatglm-api-key",
+      "model": "glm-4-flash",
+      "base_url": "https://open.bigmodel.cn/api/paas/v4"
+    },
+    "gemini": {
+      "api_key": "your-gemini-api-key",
+      "model": "gemini-2.5-flash"
+    },
+    "ollama": {
+      "api_key": "",
+      "model": "",
+      "base_url": "http://localhost:11434/v1"
+    }
+  }
+}
