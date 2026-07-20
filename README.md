@@ -60,6 +60,8 @@
 
 ## Quick Start
 
+> **Prerequisite**: Python 3.10 or later.
+
 ### 1. Install Dependencies
 
 ```bash
@@ -119,16 +121,16 @@ The Classes table contains the following columns:
 | `Parent_Class` | Superclass ID; use `Thing` for top-level classes | `Disease` |
 | `ID` | Unique class identifier (CamelCase recommended) | `CardiovascularDisease` |
 | `label` | Human-readable label | `Cardiovascular Disease` |
-| `IRI` | Full IRI of the class. Auto-generated from the base IRI + ID when you type an ID; manually editable. | `http://example.org/onto.owl#CardiovascularDisease` |
+| `IRI` | Full IRI of the class. Auto-generated from the base IRI + ID when you type an ID; read-only (not manually editable). | `http://example.org/onto.owl#CardiovascularDisease` |
 | `comment` | Descriptive annotation | `A disease affecting the heart or blood vessels` |
 | `definition` | Formal definition text | (optional) |
 
-**IRI Auto-generation**: When you edit the `ID` field, the `IRI` field is automatically filled as `<base ontology IRI><ID>`. If you manually edit the IRI, auto-generation is disabled for that row (manual edits are preserved).
+**IRI Auto-generation**: The `IRI` field is read-only — it is automatically generated as `<base ontology IRI><ID>`. When you edit the `ID` field or change the base IRI in the toolbar, all local class IRIs are automatically synced. Externally-sourced classes (from OLS/BioPortal) retain their canonical IRIs and are unaffected by base IRI changes.
 
 **Source Badges**: Classes can display a source badge next to their label:
 - `local` (default, no badge shown) — defined locally in this ontology.
 - `OLS` (orange badge) — imported from the Ontology Lookup Service (see [Ontology Class Search](#ontology-class-search-ols--bioportal)).
-- `BioPortal` (blue badge) — imported from BioPortal.
+- `BioPortal` (green badge) — imported from BioPortal.
 - Other source identifiers may appear for externally sourced classes.
 
 **Actions**:
@@ -292,7 +294,7 @@ Next to the source toggle, an **ontology filter** input allows you to restrict s
 3. The class is added to the Classes table with:
    - `ID`, `label`, and `IRI` pre-filled from the search result.
    - An orange `OLS` or `BioPortal` badge next to the label indicating the external source.
-   - IRI marked as manually edited (auto-generation disabled for this row).
+   - IRI uses the external ontology's canonical IRI (read-only, unaffected by base IRI changes).
 4. Duplicate checking prevents inserting a class with an ID or IRI that already exists in the table.
 
 ### Clearing the Search
@@ -521,13 +523,10 @@ A complete worked example — an **Inflammatory Bowel Disease (IBD) Ontology** �
 
 ### Ontology Design
 
-**29 classes** across seven top-level branches:
+**37 classes** across eight top-level branches (including 1 external reference class `disease`/MONDO):
 
 ```
 Thing
-├── InflammatoryBowelDisease
-│   ├── UlcerativeColitis
-│   └── CrohnsDisease
 ├── Symptom
 │   ├── Diarrhea
 │   ├── StomachPain
@@ -559,8 +558,12 @@ Thing
 │   ├── Corticosteroid
 │   ├── Immunomodulator
 │   └── Biologic
-└── Treatment
-    └── Surgery
+├── Treatment
+│   └── Surgery
+└── disease (external ref: MONDO)
+    └── InflammatoryBowelDisease
+        ├── UlcerativeColitis
+        └── CrohnsDisease
 ```
 
 **8 object properties** covering disease-symptom, disease-phase, disease-complication, and disease-treatment relationships:
@@ -581,7 +584,7 @@ Thing
 | File | Description |
 |------|-------------|
 | `ibd_example/README.md` | Full example documentation |
-| `ibd_example/classes.csv` | 29 class definitions |
+| `ibd_example/classes.csv` | 37 class definitions |
 | `ibd_example/object_properties.csv` | 8 object property definitions |
 | `ibd_example/ai_assist_prompt.txt` | Natural-language prompt for AI extraction |
 | `ibd_example/task_prompt.txt` | Task-specific instructions for AI extraction |
@@ -763,7 +766,7 @@ Use the **Ontology Class Search** tab to search the EBI Ontology Lookup Service 
 
 ### Q: How does the IRI auto-generation work?
 
-When you type a class `ID`, the `IRI` field is automatically filled as `<base ontology IRI><ID>`. If you manually edit the IRI, auto-generation is disabled for that row (preserving your manual edit). OLS-inserted classes have their IRI pre-filled and marked as manually edited.
+The `IRI` field is read-only — it is automatically generated as `<base ontology IRI><ID>`. When you edit the `ID` field or change the base IRI in the toolbar, all local class IRIs are automatically synced. OLS/BioPortal-inserted classes retain their canonical IRIs and are unaffected by base IRI changes.
 
 ### Q: What happens to duplicate IDs when merging AI-extracted data?
 
