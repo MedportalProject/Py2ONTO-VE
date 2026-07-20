@@ -735,6 +735,7 @@ py2onto-oss/
 │   ├── ai_assist_prompt.txt
 │   ├── task_prompt.txt
 │   ├── IBD_py2ontove.owl
+│   ├── Inflammatory Bowel Disease (IBD) Basics Information (CDC.gov).md
 │   └── IBD_py2ontove.txt
 ├── MANUAL_zh.md          # 中文用户手册（本文件）
 └── MANUAL_en.md          # 英文用户手册
