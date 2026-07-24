@@ -1,0 +1,75 @@
+You are extracting an ontology for Inflammatory Bowel Disease (IBD) from biomedical text. Follow these domain-specific instructions in addition to the general extraction rules.
+
+## Domain Scope
+
+The ontology MUST cover these top-level categories as direct subclasses of Thing:
+
+1. **InflammatoryBowelDisease** — the central disease entity, with its subtypes (UlcerativeColitis, CrohnsDisease)
+2. **Symptom** — clinical manifestations of IBD
+3. **DiseasePhase** — temporal phases of disease activity (Remission, FlareUp)
+4. **Complication** — adverse outcomes, split into:
+   - GastrointestinalComplication (inside the GI tract: Dehydration, Malabsorption, IncreasedCancerRisk)
+   - ExtraintestinalManifestation (outside the GI tract: Anemia, ReducedBoneDensity, JointPain, SkinChanges, EyeIrritation, DelayedGrowth)
+5. **MentalHealthChallenge** — psychological comorbidities (Depression, Anxiety, Distress, OtherMentalDisorder)
+6. **Medication** — pharmacological therapies (Aminosalicylate, Corticosteroid, Immunomodulator, Biologic)
+7. **Treatment** — non-pharmacological interventions (Surgery)
+
+## Class Naming Conventions
+
+- Use CamelCase for class IDs (e.g. InflammatoryBowelDisease, CrohnsDisease, MentalHealthChallenge)
+- Use human-readable English labels with proper spacing and capitalisation (e.g. "Inflammatory Bowel Disease", "Crohn's Disease")
+- Do NOT use underscores in IDs
+- Source MUST be "local" for all extracted classes
+
+## Object Properties
+
+Extract these object properties with the specified domain and range:
+
+| Property | Domain | Range | Notes |
+|---|---|---|---|
+| affects | InflammatoryBowelDisease | Thing | IBD affects organs/tissues |
+| hasSymptom | InflammatoryBowelDisease | Symptom | IBD presents with symptoms |
+| hasPhase | InflammatoryBowelDisease | DiseasePhase | IBD cycles through phases |
+| leadsTo | InflammatoryBowelDisease | Complication | IBD causes complications |
+| increasesRiskOf | InflammatoryBowelDisease | MentalHealthChallenge | IBD worsens mental health |
+| treatedBy | InflammatoryBowelDisease | Thing | IBD managed by drugs/surgery |
+| isSymptomOf | — | — | inverse_of: hasSymptom |
+| isGIComplicationOf | — | — | Links GI complications back to IBD |
+
+- Do NOT set any property characteristics (FunctionalProperty, Transitive, etc.) unless explicitly stated in the text
+- Declare inverse_of relationships when applicable (isSymptomOf inverse of hasSymptom)
+
+## Class-Level Relationships ($-prefixed columns)
+
+For classes that participate in specific object property relationships, add $-prefixed fields:
+
+- InflammatoryBowelDisease $hasSymptom → list of specific Symptom subclass IDs joined with &
+- InflammatoryBowelDisease $leadsTo → Complication
+- InflammatoryBowelDisease $increasesRiskOf → MentalHealthChallenge
+- Each Symptom subclass $isSymptomOf → InflammatoryBowelDisease
+- Each GastrointestinalComplication subclass $isGIComplicationOf → InflammatoryBowelDisease
+
+## Hierarchy Rules
+
+- The class hierarchy should reflect clinical taxonomy: general → specific
+- Every class that is a subtype of a clinical category MUST use that category as parent_class
+- Example: Diarrhea is a Symptom, NOT a direct child of Thing
+- Example: Anemia is an ExtraintestinalManifestation, which is a Complication
+- Do NOT flatten the hierarchy — preserve intermediate levels (e.g. Complication → GastrointestinalComplication → Dehydration)
+
+## What NOT to Extract
+
+- Do NOT create annotation properties unless the text explicitly defines them
+- Do NOT create individuals (instances) unless specific named patients, drug formulations, or case examples are mentioned in the text
+- Do NOT import external ontology terms (IRI should always be derived from the base ontology IRI, not external sources like OLS or BioPortal)
+- Do NOT invent symptoms, complications, or medications that are not mentioned in the input text
+
+## Quality Checks
+
+Before outputting, verify:
+1. Every class ID is unique and CamelCase
+2. Every parent_class references an existing class ID or "Thing"
+3. Every object property domain/range references existing class IDs
+4. All $ relationships reference existing class IDs
+5. The hierarchy has at least 2–3 levels of depth (not flat)
+6. Symptom subclasses each have $isSymptomOf pointing to InflammatoryBowelDisease
