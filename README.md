@@ -65,7 +65,7 @@
 ### 1. Install Dependencies
 
 ```bash
-cd py2onto-oss
+cd py2onto-ve-oss
 pip install -r requirements.txt
 ```
 
@@ -790,7 +790,7 @@ In **Merge** mode, the `Populate Tables` function automatically skips rows whose
 ## Project Structure
 
 ```
-py2onto-oss/
+py2onto-ve-oss/
 ├── app.py                # Flask application (routes, tree builder, report generator)
 ├── onto_extractor.py     # LLM ontology extraction module
 ├── config.py             # Configuration loader
