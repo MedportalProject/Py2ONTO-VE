@@ -1,9 +1,0 @@
-﻿ID,label,comment,FunctionalProperty,InverseFunctionalProperty,TransitiveProperty,SymmetricProperty,AsymmetricProperty,ReflexiveProperty,IrreflexiveProperty,equivalent_to,subproperty_of,inverse_of,domain,range,disjoint_with,*definition
-affects,affects,IBD affects the intestines.,,,,,,,,,,,InflammatoryBowelDisease,Thing,,
-hasSymptom,has symptom,IBD has symptoms.,,,,,,,,,,,InflammatoryBowelDisease,Symptom,,
-hasPhase,has phase,IBD has phases of remission and flare-up.,,,,,,,,,,,InflammatoryBowelDisease,DiseasePhase,,
-leadsTo,leads to,IBD can lead to complications.,,,,,,,,,,,InflammatoryBowelDisease,Complication,,
-increasesRiskOf,increases risk of,IBD increases risk of mental health challenges.,,,,,,,,,,,InflammatoryBowelDisease,MentalHealthChallenge,,
-treatedBy,treated by,IBD is treated by medications and surgery.,,,,,,,,,,,InflammatoryBowelDisease,Thing,,
-isSymptomOf,is symptom of,,,,,,,,,,,hasSymptom,,,,
-isGIComplicationOf,is GI complication of,,,,,,,,,,,,,,,
