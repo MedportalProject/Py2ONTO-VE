@@ -55,6 +55,7 @@
 12. [IBD Example](#ibd-example)
 13. [Ollama Local Deployment](#ollama-local-deployment)
 14. [FAQ](#faq)
+15. [Updates](#Updates)
 
 ---
 
@@ -377,15 +378,14 @@ Click **✎ Edit Prompt** to open the prompt editor modal:
 - The current prompt status is shown in the modal footer ("Built-in default loaded" or "Custom prompt loaded").
 - The custom prompt is also sent with each extraction request (if the editor has been modified without saving).
 
-### Custom Task Prompt
+### Custom Task Prompt (session-only, not persisted)
 
 Click **✎ Task prompt** (next to the System prompt button above the input textarea) to open the task prompt editor modal:
 
-- The **task prompt** is a set of per-extraction instructions appended to the system prompt. Use it to constrain the scope of a specific extraction — for example, setting top-level classes, limiting hierarchy depth, or providing naming conventions for this particular domain description.
-- The editor modal allows you to view, edit, save, or clear the task prompt.
-- **Save & Close**: Persist the edited task prompt to `config.json` for future sessions.
-- **Clear**: Remove the task prompt so no extra instructions are appended to the next extraction.
-- Unlike the system prompt (which defines the general extraction rules and JSON schema), the task prompt is meant to be task-specific — you can change it for each extraction depending on the domain you are modelling.
+- The **task prompt** is a set of per-extraction instructions appended to the system prompt, used to constrain the scope of a specific extraction (e.g. top-level classes, hierarchy depth, naming conventions).
+- **Session-only**: the task prompt is kept in browser memory and applied to the **next** extraction only — it is **not written to `config.json`** and is cleared on refresh or task switch.
+- **Clear**: Remove the current session's task prompt so no extra instructions are appended to the next extraction.
+- Unlike the system prompt (which defines the general extraction rules and JSON schema and can be saved), the task prompt is task-specific and valid only for the current run.
 
 > 💡 **Tip:** A reminder is shown below the input textarea in the AI Assist tab, with clickable links to open both the System prompt and Task prompt editors — so you can quickly adjust extraction behaviour before each run.
 
@@ -393,7 +393,7 @@ Click **✎ Task prompt** (next to the System prompt button above the input text
 
 | Provider | Available Models | API Type |
 |----------|-----------------|----------|
-| **DeepSeek** | `deepseek-chat` (DeepSeek-V3), `deepseek-reasoner` (DeepSeek-R1) | OpenAI-compatible |
+| **DeepSeek** | `deepseek-chat` (DeepSeek-V3), `deepseek-reasoner` (DeepSeek-R1), `deepseek-v4-flash` (V4-Flash), `deepseek-v4-pro` (V4-Pro) | OpenAI-compatible |
 | **ChatGLM (ZhipuAI)** | `glm-4-flash` (fast), `glm-4`, `glm-4-plus` (most capable) | OpenAI-compatible |
 | **Gemini (Google)** | `gemini-2.5-flash` (recommended), `gemini-2.5-pro` (complex ontologies) | Google Generative AI SDK |
 | **Ollama (Local)** | Any locally pulled model (e.g. `llama3`, `mistral`, `qwen2.5`) — models are auto-detected from the Ollama server | OpenAI-compatible (localhost:11434) |
@@ -444,7 +444,7 @@ Structure of `config.json`:
 
 - `medportal` / `bioportal`: Configuration for MedPortal / BioPortal ontology services (used by the py2onto core engine and the Ontology Class Search tab for external term lookups).
 - `system_prompt`: Custom LLM system prompt (edited via AI Assist → ✎ System prompt).
-- `task_prompt`: Custom per-extraction task instructions (edited via AI Assist → ✎ Task prompt).
+- `task_prompt`: Custom per-extraction task instructions (edited via AI Assist → ✎ Task prompt). **Note**: now session-only, not persisted to this file — leaving it empty is fine.
 - `llm.provider`: Default LLM provider identifier.
 - `llm.<provider>`: API key, model, and base URL (if applicable) for each LLM provider.
 - `llm.ollama`: No API key is required — use a dummy value (e.g. `"ollama"`). The `base_url` defaults to `http://localhost:11434/v1`. The model dropdown auto-detects locally available models.
@@ -815,4 +815,13 @@ py2onto-ve-oss/
 ├── MANUAL_en.md          # English user manual (this file)
 └── MANUAL_zh.md          # Chinese user manual
 ```
+
+---
+
+##  Updates 
+
+### 29-09-2026
+- **Task Prompt is now session-only** — applied to the next extraction only, never persisted to `config.json`.
+- **New DeepSeek models** — added `DeepSeek-V4-Flash` and `DeepSeek-V4-Pro` to the model dropdown.
+- **Thinking mode** — only `deepseek-reasoner` (R1) keeps its reasoning chain; other models (V3 / V4 / Gemini / Claude) disable thinking by default to save token budget.
 
