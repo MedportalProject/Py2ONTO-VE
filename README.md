@@ -55,7 +55,7 @@
 12. [IBD Example](#ibd-example)
 13. [Ollama Local Deployment](#ollama-local-deployment)
 14. [FAQ](#faq)
-15. [Updates](#Updates)
+15. [Updates](#updates)
 
 ---
 
