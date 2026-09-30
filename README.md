@@ -3,36 +3,25 @@
 # Py2ONTO-VE
  A web-based ontology editor supporting manual table editing, CSV import/export, and AI-powered natural language extraction with human-in-the-loop validation, enabling domain experts to review, refine, and approve ontology elements before generating standard OWL format files.
  
-<style>
-  /* 去掉所有包含图片的链接的下划线 */
-  a img {
-    text-decoration: none;
-    border: none;
-  }
-  /* 或者更精准地针对 markdown body 中的链接 */
-  .markdown-body a {
-    text-decoration: none;
-  }
-</style>
 
  <h1 align="center">
-  <a href="">
+  <a href="" style="text-decoration: none;">
     <img src="https://img.shields.io/badge/releases-v1.0-red" />
   </a>
    
-  <a href="">
+  <a href="" style="text-decoration: none;">
     <img src="https://img.shields.io/badge/docs-v1.0-yellow" />
   </a>
   
-  <a href="">
+  <a href="" style="text-decoration: none;">
     <img src="https://img.shields.io/badge/Ontology-Construction-blue" />
   </a>
   
-  <a href="">
+  <a href="" style="text-decoration: none;">
     <img src="https://img.shields.io/badge/LICENSE-LGPL 3-brightgreen" />
   </a>
   
-  <a href="">
+  <a href="" style="text-decoration: none;">
     <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="" />
   </a>
   
