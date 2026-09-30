@@ -5,30 +5,15 @@
  
 
  <h1 align="center">
-  <a href="">
-    <img src="https://img.shields.io/badge/releases-v1.0-red" />
-  </a>
-   
-  <a href="">
-    <img src="https://img.shields.io/badge/docs-v1.0-yellow" />
-  </a>
-  
-  <a href="">
-    <img src="https://img.shields.io/badge/Ontology-Construction-blue" />
-  </a>
-  
-  <a href="">
-    <img src="https://img.shields.io/badge/LICENSE-LGPL 3-brightgreen" />
-  </a>
-  
-  <a href="">
-    <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="" />
-  </a>
-  
-   <a href="">
-     <img src="https://img.shields.io/badge/required-Flask&Owlready2-orange" alt="" />
-   </a>
-</h1>
+  <p align="center">
+  <img src="https://img.shields.io/badge/releases-v1.0-red" />
+  <img src="https://img.shields.io/badge/docs-v1.0-yellow" />
+  <img src="https://img.shields.io/badge/Ontology-Construction-blue" />
+  <img src="https://img.shields.io/badge/LICENSE-LGPL%203-brightgreen" />
+  <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="" />
+  <img src="https://img.shields.io/badge/required-Flask%26Owlready2-orange" alt="" />
+  </p>
+  </h1>
 
 ---
 
