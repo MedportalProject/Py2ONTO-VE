@@ -5,27 +5,27 @@
  
 
  <h1 align="center">
-  <a href="" style="text-decoration:none;">
+  <a href="">
     <img src="https://img.shields.io/badge/releases-v1.0-red" />
   </a>
    
-  <a href="" style="text-decoration:none;">
+  <a href="">
     <img src="https://img.shields.io/badge/docs-v1.0-yellow" />
   </a>
   
-  <a href="" style="text-decoration:none;">
+  <a href="">
     <img src="https://img.shields.io/badge/Ontology-Construction-blue" />
   </a>
   
-  <a href="" style="text-decoration:none;">
+  <a href="">
     <img src="https://img.shields.io/badge/LICENSE-LGPL 3-brightgreen" />
   </a>
   
-  <a href="" style="text-decoration:none;">
+  <a href="">
     <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="" />
   </a>
   
-   <a href="" style="text-decoration:none;">
+   <a href="">
      <img src="https://img.shields.io/badge/required-Flask&Owlready2-orange" alt="" />
    </a>
 </h1>
